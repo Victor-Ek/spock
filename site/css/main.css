@@ -1,0 +1,80 @@
+/* ALLMÄNT */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width:100vw;
+  background-color: #00e575;
+}
+
+/* ALLMÄNT SLUT */
+
+/* MOBIL */
+@media all and (max-device-width: 415px){
+
+  .side {
+    display: none;
+  }
+  nav {
+    position: fixed;
+    height: 30px;
+  }
+
+  .header {
+    display: none;
+  }
+  .logo {
+    align-self: center;
+    position: fixed;
+    right: 45vw;
+    top:10px;
+    -webkit-box-shadow: 3px 5px 17px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 5px 17px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 5px 17px 0px rgba(0,0,0,0.75);
+    border-radius: 50%;
+	  width: 40px;
+	  height: 40px;
+  }
+  .hamburger_menu {
+    color: white;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-top: 1px;
+  }
+  .item_header {
+    color: black;
+    margin-top: 100px;
+  }
+}
+/* MOBIL SLUT*/
+
+
+/* PLATTA */
+@media all and (max-device-width: 1025px) {
+
+  .side {
+    display: none;
+  }
+}
+/* PLATTA SLUT*/
+
+/* DESKTOP */
+
+@media all and (min-device-width: 1025px) {
+
+  .side {
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+}
+
+
+/* DESKTOP SLUT */
