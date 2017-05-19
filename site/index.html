@@ -31,6 +31,9 @@
   <nav>
     <div class="hamburger_menu" onclick="hamburger_menu">
       <i class="material-icons hamburger_menu" id="hamburger_icon">menu</i>
+      <div class="menu_background">
+        <h1>Menu</h1>
+      </div>
     </div>
     <h1 class="header">Spock</h1>
     <img class="logo" src="./img/Logga.png" alt="Logga">
@@ -40,9 +43,14 @@
   <div>
     <h1 class="item_header">Stolar</h1>
 
+    <div class="center">
+      <img class="item_picture" src="./img/stol.png" alt="stol">
+    </div>
+
+<!-- Graph HTML -->
         <div id="graph-wrapper">
     <div class="graph-info">
-            <a class="visitors">Visitors</a>
+            <a class="visitors">Price</a>
             <a href="#" id="bars"><span></span></a>
             <a href="#" id="lines" class="active"><span></span></a>
         </div>
@@ -51,10 +59,9 @@
     <div id="graph-bars"></div>
         </div>
     </div>
+<!-- Graph HTML -->
 
-    <p>
-      Who recently sold this item:
-    </p>
+    <h1 class="people_who_sold">Who recently sold this item:</h1>
 
     <div class="sold_items_box">
       <div class="divide_box">
@@ -62,14 +69,139 @@
           <h1 class="sold_by_name">John Gren</h1> <p class="date">10 maj</p>
         </div>
         <div class="price_box">
-          <h1 class="price">400kr</h1>
+          <h1 class="price">-:400kr</h1>
         </div>
-
       </div>
     </div>
 
+    <div class="sold_items_box">
+      <div class="divide_box">
+        <div class="name_date_box">
+          <h1 class="sold_by_name">Råttan</h1> <p class="date">9 maj</p>
+        </div>
+        <div class="price_box">
+          <h1 class="price">-:435kr</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="sold_items_box">
+      <div class="divide_box">
+        <div class="name_date_box">
+          <h1 class="sold_by_name">Spaceman</h1> <p class="date">8 maj</p>
+        </div>
+        <div class="price_box">
+          <h1 class="price">-:520kr</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="sold_items_box">
+      <div class="divide_box">
+        <div class="name_date_box">
+          <h1 class="sold_by_name">Melker Sorum</h1> <p class="date">7 maj</p>
+        </div>
+        <div class="price_box">
+          <h1 class="price">-:800kr</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="sold_items_box">
+      <div class="divide_box">
+        <div class="name_date_box">
+          <h1 class="sold_by_name">The O</h1> <p class="date">6 maj</p>
+        </div>
+        <div class="price_box">
+          <h1 class="price">-:400kr</h1>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="more">
+      <div class="more_button" onclick="more()">
+        <h1 class="more_text">MORE</h1>
+      </div>
+    </div>
+
+
+
+      <div class="sold_items_box sold_items_box_more" id="margin_top_remover">
+        <div class="divide_box">
+          <div class="name_date_box">
+            <h1 class="sold_by_name">John Gren</h1> <p class="date">10 maj</p>
+          </div>
+          <div class="price_box">
+            <h1 class="price">-:400kr</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="sold_items_box sold_items_box_more">
+        <div class="divide_box">
+          <div class="name_date_box">
+            <h1 class="sold_by_name">Råttan</h1> <p class="date">9 maj</p>
+          </div>
+          <div class="price_box">
+            <h1 class="price">-:435kr</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="sold_items_box sold_items_box_more">
+        <div class="divide_box">
+          <div class="name_date_box">
+            <h1 class="sold_by_name">Spaceman</h1> <p class="date">8 maj</p>
+          </div>
+          <div class="price_box">
+            <h1 class="price">-:520kr</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="sold_items_box sold_items_box_more">
+        <div class="divide_box">
+          <div class="name_date_box">
+            <h1 class="sold_by_name">Melker Sorum</h1> <p class="date">7 maj</p>
+          </div>
+          <div class="price_box">
+            <h1 class="price">-:800kr</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="sold_items_box sold_items_box_more">
+        <div class="divide_box">
+          <div class="name_date_box">
+            <h1 class="sold_by_name">The O</h1> <p class="date">6 maj</p>
+          </div>
+          <div class="price_box">
+            <h1 class="price">-:400kr</h1>
+          </div>
+        </div>
+      </div>
+
   </div>
 </div>
+
+<footer>
+  <div class="divide_box">
+    <div class="info">
+      <p class="info_text">Email: spock@contact.com</p>
+      <a class="info_text" href="about.html">About</a>
+      <a class="info_text" href="help.html">Help</a>
+    </div>
+    <div class="social">
+      <a href="https://twitter.com"><img class="social_images" src="./img/twitter.png" alt="Twitter"></a>
+      <a href="https://facebook.com"><img class="social_images" src="./img/facebook.png" alt="Facebook"></a>
+      <a href="https://instagram.com"><img class="social_images" src="./img/instagram.png" alt="Instagram"></a>
+    </div>
+
+  </div>
+</footer>
+
 </body>
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/flot/jquery.flot.min.js"></script>
@@ -78,6 +210,7 @@
 $(document).ready(function () {
   graph();
   showTooltip();
+  removeUndefined();
 });
 </script>
 </html>
