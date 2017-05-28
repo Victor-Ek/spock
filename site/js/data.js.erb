@@ -1,0 +1,5 @@
+var nameData = [<%for @names in @nameList %>"<%=@names%>",<%end%>]
+var dateData = [<%for @dates in @dateList%>"<%=@dates%>",<%end%>]
+var moneyData = [<%for @money in @moneyList%>"<%=@money%>kr",<%end%>]
+var graphData = [{data: [ [0, <%=@moneyList[0]%>], [1, <%=@moneyList[1]%>], [2, <%=@moneyList[2]%>], [3, <%=@moneyList[3]%>], [4, <%=@moneyList[4]%>], [5, <%=@moneyList[5]%>], [6, <%=@moneyList[6]%>], [7, <%=@moneyList[7]%>], [8, <%=@moneyList[8]%>], [9, <%=@moneyList[9]%>] ],
+      color: '#00e575'}];

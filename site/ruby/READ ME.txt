@@ -1,0 +1,3 @@
+createDataFile behöver man bara köra en gång om man vill skapa ny data till alla användare, grafen och priserna osv
+
+Jag gjorde den för att öva på erb inför det itgotiella provet.

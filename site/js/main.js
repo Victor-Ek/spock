@@ -1,9 +1,4 @@
 function graph () {
-
-    // Price
-  var graphData = [{data: [ [1, 405], [2, 360], [3, 380], [4, 400], [5, 415], [6, 400], [7, 800], [8, 520], [9, 435], [10, 400] ],
-        color: '#00e575'}];
-
 // Lines
         $.plot($('#graph-lines'), graphData, {
       series: {
@@ -27,7 +22,7 @@ function graph () {
           tick: 2
       },
       yaxis: {
-          tickSize: 100
+          tickSize: 50
       }
   });
 // Lines
@@ -82,18 +77,26 @@ $('#bars').on('click', function (e) {
 
 //Tooltip
 function showTooltip(x, y, contents) {
+  var new_x = parseInt(x);
+
+  //Fix so tooltip does not go past view width
+  if (new_x >= 280) {
     $('<div id="tooltip">' + contents + '</div>').css({
-        top: y - 16,
-        left: x + 20,
+        top: y -16,
+        left: x -180
     }).appendTo('body').fadeIn();
+  }
+  if (new_x < 280) {
+    $('<div id="tooltip">' + contents + '</div>').css({
+        top: y -16,
+        left: x +20
+    }).appendTo('body').fadeIn();
+  }
 }
+  //Fix so tooltip does not go past view width
 
 var previousPoint = null;
 
-function removeUndefined(){
-  $('#tooltip').remove();
-  previousPoint = null;
-}
 
 $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
     if (item) {
@@ -102,7 +105,12 @@ $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
             $('#tooltip').remove();
             var x = item.datapoint[0],
                 y = item.datapoint[1];
-                showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + x + ' maj');
+                if (x > 0) {
+                  showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + x + ' Maj');
+                } else {
+                  showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + 29 + ' April');
+                }
+
         }
     }
     else {
@@ -112,24 +120,61 @@ $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
 });
 //Tooltip
 
-
-function more() {
-    element = document.querySelector(".more_button");
-    console.log(element);
-    element.classList.toggle("more_js");
-
-    while ($('#main-div .sold_items_box_more').length >= 0) {
-
-      element = document.querySelector(".sold_items_box_more");
-      element.classList.remove("sold_items_box_more");
-    }
-}
-//More Button
-
 //Hamburger Menu
  function hamburger_menu() {
    element = document.querySelector(".menu_background");
    console.log(element);
    element.classList.toggle("menu_background_display");
+   icon = document.getElementsByClassName("material-icons")
+   temp = icon[0];
+   currentIcon = document.temp.innerHTML;
+   if (currentIcon == "menu") {
+     newIcon = document.createTextNode("arrow_back");
+     currentPicture.appendChild(newIcon);
+   }else {
+     newIcon = document.createTextNode("menu");
+     currentIcon.appendChild(newIcon);
+   }
+
  }
 //Hamburger Menu
+
+//Get user data
+function createDiv() {
+  x = 0
+  while (x<5) {
+    var div = document.createElement("div");
+    div.setAttribute('class', 'sold_items_box');
+    var parent = document.getElementsByClassName("users");
+    parent[0].appendChild(div);
+
+    var div2 = document.createElement("div");
+    div2.setAttribute('class', 'divide_box');
+    div.appendChild(div2);
+
+    var div3 = document.createElement("div");
+    div3.setAttribute('class', 'name_date_box');
+    div2.appendChild(div3);
+      var name = document.createElement("h1");
+      var date = document.createElement("p");
+      name.setAttribute('class', 'sold_by_name');
+      date.setAttribute('class', 'date');
+      var name_text = document.createTextNode(nameData[x]);
+      var date_text = document.createTextNode(dateData[x]);
+      name.appendChild(name_text);
+      date.appendChild(date_text);
+    div3.appendChild(name);
+    div3.appendChild(date);
+
+      var div4 = document.createElement("div");
+      div4.setAttribute('class', 'price_box');
+      div3.appendChild(div4);
+        var price = document.createElement("h1");
+        price.setAttribute('class', 'price');
+        var price_text = document.createTextNode(moneyData[x]);
+        price.appendChild(price_text);
+      div4.appendChild(price)
+    x+=1
+  }
+}
+//Get user data
