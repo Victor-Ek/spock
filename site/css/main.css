@@ -222,10 +222,6 @@ nav {
 
     /*Graph Style End */
 
-    #hamburger_icon {
-      font-size: 30px;
-    }
-
     .menu_background {
       display: none;
       background-color: #00e575;
@@ -238,6 +234,9 @@ nav {
 
     .menu_background_display {
       display: flex;
+      -webkit-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
+      box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
     }
 
     .side {
@@ -267,13 +266,23 @@ nav {
       height: 40px;
     }
 
+    .removed {
+      display: none;
+    }
+
     .hamburger_menu {
       color: white;
       display: flex;
       width: 24px;
-      height: 24px;
+      height: 100%;
       margin-top: 1px;
       z-index: 2;
+      align-items: center;
+    }
+
+    #hamburger_icon {
+      font-size: 25px;
+      margin-left: 25%;
     }
 
     .margin_stopper {

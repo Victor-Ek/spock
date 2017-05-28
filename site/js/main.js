@@ -123,20 +123,45 @@ $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
 //Hamburger Menu
  function hamburger_menu() {
    element = document.querySelector(".menu_background");
-   console.log(element);
    element.classList.toggle("menu_background_display");
-   icon = document.getElementsByClassName("material-icons")
-   temp = icon[0];
-   currentIcon = document.temp.innerHTML;
-   if (currentIcon == "menu") {
-     newIcon = document.createTextNode("arrow_back");
-     currentPicture.appendChild(newIcon);
-   }else {
-     newIcon = document.createTextNode("menu");
-     currentIcon.appendChild(newIcon);
-   }
+   currentIcon = document.getElementById("hamburger_icon").innerHTML;
+   parent = document.getElementById("hamburger_icon");
+   previousIcon = document.querySelector(".fa-bars");
 
- }
+   if (previousIcon != null) {
+     options = {
+       from: "fa-bars",
+       to: "fa-arrow-left",
+       animation: "tada"
+     };
+      iconate(parent, options);
+  } else {
+    options = {
+      from: "fa-arrow-left",
+      to: "fa-bars",
+      animation: "tada"
+    };
+     iconate(parent, options);
+  }
+  //remove logo since it not required when menu is opend
+  parent = document.getElementById("logo");
+  element = document.querySelector(".logo");
+    if (element != null){
+      options = {
+        from: "logo",
+        to: "removed",
+        animation: "fadeOut"
+      };
+      iconate(parent, options);
+    } else {
+        options = {
+          from: "removed",
+          to: "logo",
+          animation: "fadeIn"
+      };
+      iconate(parent, options);
+    }
+}
 //Hamburger Menu
 
 //Get user data

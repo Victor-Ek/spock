@@ -4,7 +4,9 @@
 <head>
   <title>Spock</title>
   <meta charset="utf-8">
+  <link href="css/font-awesome.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+  <link href="css/iconate.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -30,10 +32,10 @@
 
   <nav>
     <div class="hamburger_menu" onclick="hamburger_menu()">
-      <i class="material-icons hamburger_menu" id="hamburger_icon">menu</i>
+      <i class="hamburger_menu fa fa-bars fa-lg" id="hamburger_icon"></i>
     </div>
     <h1 class="header">Spock</h1>
-    <img class="logo" src="./img/Logga.png" alt="Logga">
+    <img class="logo" id="logo" src="./img/Logga.png" alt="Logo">
     <div class="menu_background">
       <h1>Menu</h1>
     </div>
@@ -98,8 +100,10 @@
 </body>
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/flot/jquery.flot.min.js"></script>
+<script src="./js/iconate.min.js"> </script>
 <script src="./js/main.js"></script>
 <script src="./js/data.js"></script>
+
 <script>
 $(document).ready(function () {
   graph();
