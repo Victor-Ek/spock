@@ -223,10 +223,9 @@ nav {
     /*Graph Style End */
 
     .menu_background {
-      display: none;
       background-color: #00e575;
       top: 0;
-      left: 0;
+      left: -1000;
       width: 75vw;
       height: 100vh;
       z-index: 3;
@@ -234,6 +233,7 @@ nav {
 
     .menu_background_display {
       display: flex;
+      left: 0;
       -webkit-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
       box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
@@ -267,7 +267,11 @@ nav {
     }
 
     .removed {
-      display: none;
+      top: -100px;
+    }
+
+    .visable {
+      top:15px;
     }
 
     .hamburger_menu {

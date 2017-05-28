@@ -122,9 +122,7 @@ $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
 
 //Hamburger Menu
  function hamburger_menu() {
-   element = document.querySelector(".menu_background");
-   element.classList.toggle("menu_background_display");
-   currentIcon = document.getElementById("hamburger_icon").innerHTML;
+//changes icon to arrow icon or hamburger icon
    parent = document.getElementById("hamburger_icon");
    previousIcon = document.querySelector(".fa-bars");
 
@@ -143,30 +141,54 @@ $('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
     };
      iconate(parent, options);
   }
+
+  //slides the hamburger menu in
+  parent2 = document.getElementById("menu_background");
+  console.log(parent2);
+  previousStateMenuBackground = document.querySelector("menu_background");
+
+  if (previousStateMenuBackground == null) {
+    options = {
+      from: "menu_background_display",
+      to: "menu_background",
+      animation: "fadeOutRight"
+    };
+    iconate(parent2, options);
+  } else {
+    options = {
+      from: "menu_background",
+      to: "menu_background_display",
+      animation: "fadeOutLeft"
+    };
+    iconate(parent2, options);
+  }
+
   //remove logo since it not required when menu is opend
-  parent = document.getElementById("logo");
-  element = document.querySelector(".logo");
-    if (element != null){
+  parent3 = document.getElementById("logo_id");
+  previousStateLogo = document.querySelector(".visable");
+
+
+    if (previousStateLogo != null){
       options = {
-        from: "logo",
+        from: "visable",
         to: "removed",
-        animation: "fadeOut"
+        animation: "zoomOut"
       };
-      iconate(parent, options);
+      iconate(parent3, options);
     } else {
-        options = {
-          from: "removed",
-          to: "logo",
-          animation: "fadeIn"
+      options = {
+        from: "removed",
+        to: "visable",
+        animation: "zoomIn"
       };
-      iconate(parent, options);
+       iconate(parent3, options);
     }
 }
 //Hamburger Menu
 
 //Get user data
 function createDiv() {
-  x = 0
+  x = 0;
   while (x<5) {
     var div = document.createElement("div");
     div.setAttribute('class', 'sold_items_box');
@@ -198,8 +220,8 @@ function createDiv() {
         price.setAttribute('class', 'price');
         var price_text = document.createTextNode(moneyData[x]);
         price.appendChild(price_text);
-      div4.appendChild(price)
-    x+=1
+      div4.appendChild(price);
+    x+=1;
   }
 }
 //Get user data
