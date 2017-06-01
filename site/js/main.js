@@ -80,13 +80,26 @@ function showTooltip(x, y, contents) {
   var new_x = parseInt(x);
 
   //Fix so tooltip does not go past view width
-  if (new_x >= 280) {
+  window_width = $(window).width();
+  if (window_width < 400 && new_x >= 280) {
+    $('<div id="tooltip">' + contents + '</div>').css({
+      top: y - 16,
+      left: x - 180
+    }).appendTo('body').fadeIn();
+  }
+  else if (window_width < 400 && new_x < 280) {
+    $('<div id="tooltip">' + contents + '</div>').css({
+      top: y - 16,
+      left: x + 20
+    }).appendTo('body').fadeIn();
+  }
+  else if (window_width >1024) {
     $('<div id="tooltip">' + contents + '</div>').css({
       top: y - 16,
       left: x - 260
     }).appendTo('body').fadeIn();
   }
-  if (new_x < 280) {
+  else{
     $('<div id="tooltip">' + contents + '</div>').css({
       top: y - 16,
       left: x + 20
