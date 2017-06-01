@@ -16,18 +16,12 @@
     <div>
       <h1>Reletad items</h1>
     </div>
-    <p>
-      Item #1
-    </p>
-    <p>
-      Item #2
-    </p>
-    <p>
-      Item #3
-    </p>
-    <p>
-      Item #4
-    </p>
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li>item 4</li>
+    </ul>
   </div>
 
   <nav>
@@ -35,80 +29,105 @@
       <i class="hamburger_menu fa fa-bars fa-lg" id="hamburger_icon"></i>
     </div>
     <h1 class="header">Spock</h1>
-    <img class="logo visable" id="logo_id" src="./img/Logga.png" alt="Logo">
-    <div class="menu_background" id="menu_background">
-      <h1>Menu</h1>
+    <img class="logo visable not_ipad" id="logo_id" src="./img/Logga.png" alt="Logo">
+    <div class="menu_background display_none" id="menu_background">
+      <div class="flex width_100vw column">
+        <h1 class="center_me">Menu</h1>
+        <ul>
+          <li><a class="links" href="index.html">link 1</a></li>
+          <li><a class="links" href="index.html">link 2</a></li>
+          <li><a class="links" href="index.html">link 3</a></li>
+          <li><a class="links" href="index.html">link 4</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-<div class="margin_stopper">
-  <div>
-    <h1 class="item_header">Stolar</h1>
+  <div class="margin_stopper">
+    <div>
+      <div class="ipad_row">
+        <h1 class="item_header">Stolar</h1>
 
+        <div class="center">
+          <img class="item_picture" src="./img/stol.png" alt="stol">
+        </div>
+      </div>
+
+      <div class="center">
+        <!-- Graph HTML -->
+        <div id="graph-wrapper">
+          <div class="graph-info">
+            <a class="visitors">Price</a>
+            <a href="#" id="bars"><span></span></a>
+            <a href="#" id="lines" class="active"><span></span></a>
+          </div>
+          <div class="graph-container">
+            <div id="graph-lines"></div>
+            <div id="graph-bars"></div>
+          </div>
+        </div>
+        <!-- Graph HTML -->
+      </div>
+
+
+      <h1 class="people_who_sold">Who recently sold this item:</h1>
+
+      <div class="ipad_row">
+        <div class="column">
+          <div class="users">
+
+          </div>
+          <div class="more">
+            <div class="more_button" onclick="createDiv()">
+              <h1 class="more_text">MORE</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="ipad_only ipad_reletad_items">
+          <h1>Related Items:</h1>
+          <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
     <div class="center">
-      <img class="item_picture" src="./img/stol.png" alt="stol">
+      <img class="logo_ipad" id="logo_id" src="./img/Logga.png" alt="Logo">
     </div>
-
-<div class="center">
-<!-- Graph HTML -->
-          <div id="graph-wrapper">
-      <div class="graph-info">
-              <a class="visitors">Price</a>
-              <a href="#" id="bars"><span></span></a>
-              <a href="#" id="lines" class="active"><span></span></a>
-          </div>
-      <div class="graph-container">
-      <div id="graph-lines"></div>
-      <div id="graph-bars"></div>
-          </div>
+    <div class="divide_box">
+      <div class="info">
+        <p class="info_text">Email: spock@contact.com</p>
+        <a class="info_text" href="about.html">About</a>
+        <a class="info_text" href="help.html">Help</a>
       </div>
-<!-- Graph HTML -->
-</div>
-
-
-    <h1 class="people_who_sold">Who recently sold this item:</h1>
-
-    <div class="users">
-
-    </div>
-
-    <div class="more">
-      <div class="more_button" onclick="createDiv()">
-        <h1 class="more_text">MORE</h1>
+      <div class="social">
+        <a href="https://twitter.com"><img class="social_images" src="./img/twitter.png" alt="Twitter"></a>
+        <a href="https://facebook.com"><img class="social_images" src="./img/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com"><img class="social_images" src="./img/instagram.png" alt="Instagram"></a>
       </div>
-    </div>
 
-  </div>
-</div>
-
-<footer>
-  <div class="divide_box">
-    <div class="info">
-      <p class="info_text">Email: spock@contact.com</p>
-      <a class="info_text" href="about.html">About</a>
-      <a class="info_text" href="help.html">Help</a>
     </div>
-    <div class="social">
-      <a href="https://twitter.com"><img class="social_images" src="./img/twitter.png" alt="Twitter"></a>
-      <a href="https://facebook.com"><img class="social_images" src="./img/facebook.png" alt="Facebook"></a>
-      <a href="https://instagram.com"><img class="social_images" src="./img/instagram.png" alt="Instagram"></a>
-    </div>
-
-  </div>
-</footer>
+  </footer>
 
 </body>
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/flot/jquery.flot.min.js"></script>
-<script src="./js/iconate.min.js"> </script>
+<script src="./js/iconate.min.js"></script>
 <script src="./js/main.js"></script>
 <script src="./js/data.js"></script>
 
 <script>
-$(document).ready(function () {
-  graph();
-  showTooltip();
-  createDiv();          //get 5 users on startup
-});
+  $(document).ready(function() {
+    graph();
+    showTooltip();
+    createDiv(); //get 5 users on startup
+  });
 </script>
+
 </html>

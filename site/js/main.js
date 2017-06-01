@@ -1,76 +1,76 @@
-function graph () {
-// Lines
-        $.plot($('#graph-lines'), graphData, {
-      series: {
-          points: {
-              show: true,
-              radius: 5
-          },
-          lines: {
-              show: true
-          },
-          shadowSize: 0
-      },
-      grid: {
-          color: '#646464',
-          borderColor: 'transparent',
-          borderWidth: 1,
-          hoverable: true
-      },
-      xaxis: {
-          tickColor: 'transparent',
-          tick: 2
-      },
-      yaxis: {
-          tickSize: 50
-      }
-  });
-// Lines
-
-// Bars
-  $.plot($('#graph-bars'), graphData, {
+function graph() {
+  // Lines
+  $.plot($('#graph-lines'), graphData, {
     series: {
-        bars: {
-            show: true,
-            barWidth: 0.9,
-            align: 'center'
-        },
-        shadowSize: 0
+      points: {
+        show: true,
+        radius: 5
+      },
+      lines: {
+        show: true
+      },
+      shadowSize: 0
     },
     grid: {
-        color: '#646464',
-        borderColor: 'transparent',
-        borderWidth: 0,
-        hoverable: true
+      color: '#646464',
+      borderColor: 'transparent',
+      borderWidth: 1,
+      hoverable: true
     },
     xaxis: {
-        tickColor: 'transparent',
-        tick: 2
+      tickColor: 'transparent',
+      tick: 2
     },
     yaxis: {
-        tickSize: 200
+      tickSize: 50
     }
-});
-// Bars
+  });
+  // Lines
 
-//Change Graph
-$('#graph-bars').hide();
+  // Bars
+  $.plot($('#graph-bars'), graphData, {
+    series: {
+      bars: {
+        show: true,
+        barWidth: 0.9,
+        align: 'center'
+      },
+      shadowSize: 0
+    },
+    grid: {
+      color: '#646464',
+      borderColor: 'transparent',
+      borderWidth: 0,
+      hoverable: true
+    },
+    xaxis: {
+      tickColor: 'transparent',
+      tick: 2
+    },
+    yaxis: {
+      tickSize: 200
+    }
+  });
+  // Bars
 
-$('#lines').on('click', function (e) {
+  //Change Graph
+  $('#graph-bars').hide();
+
+  $('#lines').on('click', function(e) {
     $('#bars').removeClass('active');
     $('#graph-bars').fadeOut();
     $(this).addClass('active');
     $('#graph-lines').fadeIn();
     e.preventDefault();
-});
+  });
 
-$('#bars').on('click', function (e) {
+  $('#bars').on('click', function(e) {
     $('#lines').removeClass('active');
     $('#graph-lines').fadeOut();
     $(this).addClass('active');
     $('#graph-bars').fadeIn().removeClass('hidden');
     e.preventDefault();
-});
+  });
 }
 //Change Graph
 
@@ -82,114 +82,110 @@ function showTooltip(x, y, contents) {
   //Fix so tooltip does not go past view width
   if (new_x >= 280) {
     $('<div id="tooltip">' + contents + '</div>').css({
-        top: y -16,
-        left: x -180
+      top: y - 16,
+      left: x - 180
     }).appendTo('body').fadeIn();
   }
   if (new_x < 280) {
     $('<div id="tooltip">' + contents + '</div>').css({
-        top: y -16,
-        left: x +20
+      top: y - 16,
+      left: x + 20
     }).appendTo('body').fadeIn();
   }
 }
-  //Fix so tooltip does not go past view width
+//Fix so tooltip does not go past view width
 
 var previousPoint = null;
 
 
-$('#graph-lines, #graph-bars').bind('plothover', function (event, pos, item) {
-    if (item) {
-        if (previousPoint != item.dataIndex) {
-            previousPoint = item.dataIndex;
-            $('#tooltip').remove();
-            var x = item.datapoint[0],
-                y = item.datapoint[1];
-                if (x > 0) {
-                  showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + x + ' Maj');
-                } else {
-                  showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + 29 + ' April');
-                }
-
-        }
-    }
-    else {
+$('#graph-lines, #graph-bars').bind('plothover', function(event, pos, item) {
+  if (item) {
+    if (previousPoint != item.dataIndex) {
+      previousPoint = item.dataIndex;
       $('#tooltip').remove();
-      previousPoint = null;
+      var x = item.datapoint[0],
+        y = item.datapoint[1];
+      if (x > 0) {
+        showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + x + ' Maj');
+      } else {
+        showTooltip(item.pageX, item.pageY, y + 'kr kostade det ' + 29 + ' April');
+      }
+
     }
+  } else {
+    $('#tooltip').remove();
+    previousPoint = null;
+  }
 });
 //Tooltip
 
 //Hamburger Menu
- function hamburger_menu() {
-//changes icon to arrow icon or hamburger icon
-   parent = document.getElementById("hamburger_icon");
-   previousIcon = document.querySelector(".fa-bars");
+var menuState = "closed"
+function hamburger_menu() {
+  //changes icon to arrow icon or hamburger icon
+  parent = document.getElementById("hamburger_icon");
+  previousIcon = document.querySelector(".fa-bars");
 
-   if (previousIcon != null) {
-     options = {
-       from: "fa-bars",
-       to: "fa-arrow-left",
-       animation: "tada"
-     };
-      iconate(parent, options);
+  if (previousIcon != null) {
+    options = {
+      from: "fa-bars",
+      to: "fa-arrow-left",
+      animation: "horizontalFlip"
+    };
+    iconate(parent, options);
   } else {
     options = {
       from: "fa-arrow-left",
       to: "fa-bars",
-      animation: "tada"
+      animation: "horizontalFlip"
     };
-     iconate(parent, options);
+    iconate(parent, options);
   }
 
-  //slides the hamburger menu in
-  parent2 = document.getElementById("menu_background");
-  console.log(parent2);
-  previousStateMenuBackground = document.querySelector("menu_background");
+  //remove logo since it not required when menu is opend
+  parent2 = document.getElementById("logo_id");
+  previousStateLogo = document.querySelector(".visable");
 
-  if (previousStateMenuBackground == null) {
+
+  if (previousStateLogo != null) {
     options = {
-      from: "menu_background_display",
-      to: "menu_background",
-      animation: "fadeOutRight"
+      from: "visable",
+      to: "removed",
+      animation: "zoomOut"
     };
     iconate(parent2, options);
   } else {
     options = {
-      from: "menu_background",
-      to: "menu_background_display",
-      animation: "fadeOutLeft"
+      from: "removed",
+      to: "visable",
+      animation: "zoomIn"
     };
     iconate(parent2, options);
   }
+  //displays or removes the hamburger Menu
+  element = document.querySelector(".menu_background");
+  element.classList.toggle("menu_background_display");
+  element.classList.toggle("shadow");
+  if (menuState == "opened"){
+    setTimeout(function(){ element.classList.toggle("display_none"); }, 500); //waits untill the menu is closed before removing it
+    menuState = "closed"
+  }else {
+    element.classList.toggle("display_none");
+    menuState = "opened"
+  }
 
-  //remove logo since it not required when menu is opend
-  parent3 = document.getElementById("logo_id");
-  previousStateLogo = document.querySelector(".visable");
-
-
-    if (previousStateLogo != null){
-      options = {
-        from: "visable",
-        to: "removed",
-        animation: "zoomOut"
-      };
-      iconate(parent3, options);
-    } else {
-      options = {
-        from: "removed",
-        to: "visable",
-        animation: "zoomIn"
-      };
-       iconate(parent3, options);
-    }
 }
+
+
+
 //Hamburger Menu
 
 //Get user data
+var timesClicked = 0
+
 function createDiv() {
   x = 0;
-  while (x<5) {
+  while (x < 5) {
     var div = document.createElement("div");
     div.setAttribute('class', 'sold_items_box');
     var parent = document.getElementsByClassName("users");
@@ -202,26 +198,32 @@ function createDiv() {
     var div3 = document.createElement("div");
     div3.setAttribute('class', 'name_date_box');
     div2.appendChild(div3);
-      var name = document.createElement("h1");
-      var date = document.createElement("p");
-      name.setAttribute('class', 'sold_by_name');
-      date.setAttribute('class', 'date');
-      var name_text = document.createTextNode(nameData[x]);
-      var date_text = document.createTextNode(dateData[x]);
-      name.appendChild(name_text);
-      date.appendChild(date_text);
+    var name = document.createElement("h1");
+    var date = document.createElement("p");
+    name.setAttribute('class', 'sold_by_name');
+    date.setAttribute('class', 'date');
+    var name_text = document.createTextNode(nameData[x + timesClicked]);
+    var date_text = document.createTextNode(dateData[x + timesClicked]);
+    name.appendChild(name_text);
+    date.appendChild(date_text);
     div3.appendChild(name);
     div3.appendChild(date);
 
-      var div4 = document.createElement("div");
-      div4.setAttribute('class', 'price_box');
-      div3.appendChild(div4);
-        var price = document.createElement("h1");
-        price.setAttribute('class', 'price');
-        var price_text = document.createTextNode(moneyData[x]);
-        price.appendChild(price_text);
-      div4.appendChild(price);
-    x+=1;
+    var div4 = document.createElement("div");
+    div4.setAttribute('class', 'price_box');
+    div3.appendChild(div4);
+    var price = document.createElement("h1");
+    price.setAttribute('class', 'price');
+    var price_text = document.createTextNode(moneyData[x + timesClicked]);
+    price.appendChild(price_text);
+    div4.appendChild(price);
+    x += 1;
   }
+  timesClicked += 5
 }
 //Get user data
+
+function sleep(delay) {
+  var start = new Date().getTime();
+  while (new Date().getTime() < start + delay);
+}

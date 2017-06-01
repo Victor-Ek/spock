@@ -11,58 +11,6 @@ nav {
   background-color: #00e575;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
-/* Resets */
-.graph-container,
-.graph-container div,
-.graph-container a,
-.graph-container span {
-    margin-top:0;
-    padding: 0;
-}
-/* Resets */
-
-/* Gradinet and Rounded Corners */
-.graph-container, #tooltip, .graph-info a {
-    background: #ffffff;
-    background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
-    background: -webkit-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
-    background: -o-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
-    background: -ms-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
-    background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 100%);
-
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-/* Gradinet and Rounded Corners */
-
-/* Graph Container */
-.graph-container {
-    position: relative;
-    width: 550px;
-    height: 300px;
-    padding: 20px;
-
-    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
-    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
-    box-shadow: 0px 1px 2px rgba(0,0,0,.1);
-}
-
-.graph-container > div {
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    top: 10px;
-    left: 25px;
-}
-
-.graph-info {
-    width: 590px;
-    margin-bottom: 10px;
-}
-/* Graph Container */
-
 
 .graph-info a {
     position: relative;
@@ -170,7 +118,7 @@ nav {
 /* ALLMÄNT SLUT */
 
 /* MOBIL */
-@media all and (max-device-width: 415px){
+
 
     /* Graph style */
 
@@ -224,20 +172,54 @@ nav {
 
     .menu_background {
       background-color: #00e575;
-      top: 0;
-      left: -1000;
+      top: -5px;
+      left: 0;
       width: 75vw;
       height: 100vh;
       z-index: 3;
+      opacity: 0;
+      animation-name: flowLeft;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-duration: 0.2s;
     }
 
     .menu_background_display {
       display: flex;
-      left: 0;
-      -webkit-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
-      box-shadow: 2px 2px 300px 0px rgba(0,0,0,0.75);
+      opacity: 100;
+      animation-name: flowRight;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      animation-duration: 0.2s;
     }
+
+    .shadow {
+      -webkit-box-shadow: 154px 0px 0px 0px rgba(0,0,0,0.34);
+      -moz-box-shadow: 154px 0px 0px 0px rgba(0,0,0,0.34);
+      box-shadow: 154px 0px 0px 0px rgba(0,0,0,0.34);
+      transition: 1s ease;
+    }
+
+
+    @keyframes flowRight {
+    0% {
+        transform: translateX(-100%);
+        }
+    100% {
+        transform: translateX(0);
+        }
+      }
+
+      @keyframes flowLeft {
+      0% {
+          transform: translateX(0);
+          opacity: 100;
+          }
+      100% {
+          transform: translateX(-100%);
+          opacity: 0;
+          }
+        }
 
     .side {
       display: none;
@@ -270,6 +252,10 @@ nav {
       top: -100px;
     }
 
+    .display_none {
+      display: none;
+    }
+
     .visable {
       top:15px;
     }
@@ -279,7 +265,6 @@ nav {
       display: flex;
       width: 24px;
       height: 100%;
-      margin-top: 1px;
       z-index: 2;
       align-items: center;
     }
@@ -304,6 +289,30 @@ nav {
       display: flex;
       align-content: center;
       justify-content: center;
+    }
+
+    .width_100vw {
+      width: 100vw
+    }
+
+    .flex{
+      display: flex;
+    }
+
+    .links, li {
+      text-decoration: none;
+      color: black;
+      font-size: 30px;
+      margin: 10px;
+      margin-top: 10px;
+    }
+
+    .column {
+      flex-direction: column;
+    }
+
+    .center_me {
+      align-self: center;
     }
 
     .item_picture {
@@ -343,6 +352,9 @@ nav {
     .name_date_box {
       display: flex;
       flex-grow: 2;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
     }
 
     .date{
@@ -428,16 +440,152 @@ nav {
       border-radius: 5px;
       margin: 5px;
     }
-}
+
+    .ipad_only {
+      display: none;
+    }
+
 /* MOBIL SLUT*/
 
 
 /* PLATTA */
-@media all and (max-device-width: 1025px) {
+@media all and (min-device-width:500px) {
 
   .side {
     display: none;
   }
+
+  .ipad_only {
+    display: flex;
+  }
+
+  .not_ipad {
+    display: none;
+  }
+
+  .item_picture{
+    margin-top: 60px;
+  }
+
+  .graph-container,
+  .graph-container div,
+  .graph-container a,
+  .graph-container span {
+      margin-top:0;
+      padding: 0;
+  }
+
+  .graph-container, #tooltip, .graph-info a {
+      background: #ffffff;
+      background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
+      background: -webkit-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+      background: -o-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+      background: -ms-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+      background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 100%);
+
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+  }
+
+  .graph-container {
+      position: relative;
+      width: 550px;
+      height: 300px;
+      padding: 20px;
+
+      -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+      -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+      box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+  }
+
+  .graph-container > div {
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 10px;
+      left: 25px;
+  }
+
+  .graph-info {
+      width: 590px;
+      margin-bottom: 10px;
+  }
+
+  #tooltip, .graph-info a {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 20px;
+      color: #646464;
+  }
+
+  .tickLabel {
+      font-weight: bold;
+      font-size: 20px;
+      color: #666;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .ipad_row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .ipad_reletad_items {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+  padding-left: 1em;
+  text-indent: -.7em;
+}
+
+  li::before {
+    content: "• ";
+    color: #00e575;
+  }
+
+  .people_who_sold {
+    font-size: 20px;
+  }
+
+  .item_picture {
+    width: 140px;
+    height: 140px;
+  }
+
+  .header {
+    display: flex;
+    position: fixed;
+  }
+
+  .logo_ipad {
+    position: relative;
+    right: inherit;
+    border-radius: 50%;
+    bottom: 40px;
+    margin-bottom: -53px;
+    width: 80px;
+    height: 80px;
+    -webkit-box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
+  }
+
+  footer {
+    max-height: 100px;
+  }
+
 }
 /* PLATTA SLUT*/
 
@@ -450,6 +598,52 @@ nav {
     right: 0;
     top: 0;
   }
+
+    .graph-container,
+    .graph-container div,
+    .graph-container a,
+    .graph-container span {
+        margin-top:0;
+        padding: 0;
+    }
+
+    .graph-container, #tooltip, .graph-info a {
+        background: #ffffff;
+        background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
+        background: -webkit-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+        background: -o-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+        background: -ms-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+        background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 100%);
+
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .graph-container {
+        position: relative;
+        width: 550px;
+        height: 300px;
+        padding: 20px;
+
+        -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+        -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+        box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    }
+
+    .graph-container > div {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        top: 10px;
+        left: 25px;
+    }
+
+    .graph-info {
+        width: 590px;
+        margin-bottom: 10px;
+    }
 
 }
 
