@@ -81,10 +81,10 @@ function showTooltip(x, y, contents) {
 
   //Fix so tooltip does not go past view width
   window_width = $(window).width();
-  if (window_width < 400 && new_x >= 280) {
+  if (window_width < 400 && new_x >= 270) {
     $('<div id="tooltip">' + contents + '</div>').css({
       top: y - 16,
-      left: x - 180
+      left: x - 175
     }).appendTo('body').fadeIn();
   }
   else if (window_width < 400 && new_x < 280) {
@@ -109,6 +109,11 @@ function showTooltip(x, y, contents) {
 //Fix so tooltip does not go past view width
 
 var previousPoint = null;
+
+function removeUndefinedProblem() {
+  $('#tooltip').remove();
+  previousPoint = null;
+}
 
 $('#graph-lines, #graph-bars').bind('plothover', function(event, pos, item) {
   if (item) {

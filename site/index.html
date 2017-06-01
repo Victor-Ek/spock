@@ -71,7 +71,6 @@
 
 
       <h1 class="people_who_sold">Who recently sold this item:</h1>
-
       <div class="ipad_row">
         <div class="column">
           <div class="users">
@@ -114,20 +113,18 @@
 
     </div>
   </footer>
-
 </body>
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/flot/jquery.flot.min.js"></script>
 <script src="./js/iconate.min.js"></script>
 <script src="./js/main.js"></script>
 <script src="./js/data.js"></script>
-
 <script>
   $(document).ready(function() {
     graph();
     showTooltip();
     createDiv(); //get 5 users on startup
+    removeUndefinedProblem(); //Removes a undefined box that appears when opening the site
   });
 </script>
-
 </html>
