@@ -531,12 +531,24 @@ nav {
   .ipad_row {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
 
   .ipad_reletad_items {
     margin-left: 50px;
     display: flex;
     flex-direction: column;
+  }
+
+  .menu_background{
+    width: 35vw;
+  }
+
+  .shadow {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.34);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.34);
+    transition: 1s ease;
   }
 
   ul {
@@ -564,9 +576,16 @@ nav {
     height: 140px;
   }
 
+  .item_header {
+    align-self: center;
+    margin-right: 25%;
+  }
+
   .header {
     display: flex;
     position: fixed;
+    top: 0;
+    right: 45vw;
   }
 
   .logo_ipad {
@@ -595,8 +614,17 @@ nav {
 
   .side {
     position: fixed;
+    display: flex;
     right: 0;
     top: 0;
+    background-color: #00e575;
+    z-index: 2;
+    height: 100vh;
+    padding: 1%;
+  }
+
+  .ipad_only {
+    display: none;
   }
 
     .graph-container,
@@ -643,6 +671,26 @@ nav {
     .graph-info {
         width: 590px;
         margin-bottom: 10px;
+    }
+
+    .menu_background {
+      width: 20vw;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+    padding-left: 1em;
+    text-indent: -.7em;
+  }
+
+    li::before {
+      content: "• ";
+      color: black;
     }
 
 }

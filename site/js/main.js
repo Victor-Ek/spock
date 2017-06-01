@@ -83,7 +83,7 @@ function showTooltip(x, y, contents) {
   if (new_x >= 280) {
     $('<div id="tooltip">' + contents + '</div>').css({
       top: y - 16,
-      left: x - 180
+      left: x - 260
     }).appendTo('body').fadeIn();
   }
   if (new_x < 280) {
@@ -96,7 +96,6 @@ function showTooltip(x, y, contents) {
 //Fix so tooltip does not go past view width
 
 var previousPoint = null;
-
 
 $('#graph-lines, #graph-bars').bind('plothover', function(event, pos, item) {
   if (item) {
@@ -167,7 +166,7 @@ function hamburger_menu() {
   element.classList.toggle("menu_background_display");
   element.classList.toggle("shadow");
   if (menuState == "opened"){
-    setTimeout(function(){ element.classList.toggle("display_none"); }, 500); //waits untill the menu is closed before removing it
+    setTimeout(function(){ element.classList.toggle("display_none"); }, 500); //waits until the menu is closed before removing it with display none since if it get display none to early the animation wont play
     menuState = "closed"
   }else {
     element.classList.toggle("display_none");
@@ -175,12 +174,9 @@ function hamburger_menu() {
   }
 
 }
-
-
-
 //Hamburger Menu
 
-//Get user data
+//Get user data and create new boxes that displays there name, date they sold the thing and how much they sold it for
 var timesClicked = 0
 
 function createDiv() {
@@ -222,8 +218,3 @@ function createDiv() {
   timesClicked += 5
 }
 //Get user data
-
-function sleep(delay) {
-  var start = new Date().getTime();
-  while (new Date().getTime() < start + delay);
-}
