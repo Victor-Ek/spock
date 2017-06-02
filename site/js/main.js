@@ -197,7 +197,7 @@ function hamburger_menu() {
 //Get user data and create new boxes that displays there name, date they sold the thing and how much they sold it for
 var timesClicked = 0
 
-function createDiv() {
+function createDivs() {
   x = 0;
   while (x < 5) {
     var div = document.createElement("div");

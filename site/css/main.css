@@ -12,6 +12,65 @@ nav {
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
+.sprite {
+    background-image: url(../img/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-Instagram {
+    width: 30px;
+    height: 29px;
+    background-position: -5px -5px;
+}
+
+.sprite-Logga {
+    width: 40px;
+    height: 40px;
+    background-position: -45px -5px;
+}
+
+.sprite-facebook {
+    width: 30px;
+    height: 30px;
+    background-position: -95px -5px;
+}
+
+.sprite-stol-big {
+    width: 141px;
+    height: 141px;
+    background-position: -5px -55px;
+}
+
+.sprite-stol-medium {
+    width: 103px;
+    height: 103px;
+    background-position: -227px -5px;
+}
+
+.sprite-stol-small {
+    width: 80px;
+    height: 80px;
+    background-position: -156px -118px;
+}
+
+.sprite-twitter {
+    width: 30px;
+    height: 30px;
+    background-position: -246px -118px;
+}
+
+.lager_mask_bild {
+  width: 345px;
+  height: 240px;
+  margin-bottom: 50%;
+}
+
+.work_of_art {
+  margin-top: 50%;
+  text-align: center;
+}
+
 .graph-info a {
     position: relative;
     display: inline-block;
@@ -430,15 +489,20 @@ nav {
       align-items: center;
     }
 
+    .ipad_only {
+      display: none;
+    }
+
     .social_images {
       align-self: flex-end;
       width: 30px;
+      height: 30px;
       background-color: rgb(255, 255, 255);
       border-radius: 5px;
       margin: 5px;
     }
 
-    .ipad_only {
+    .destop_only {
       display: none;
     }
 
@@ -454,6 +518,10 @@ nav {
 
   .ipad_only {
     display: flex;
+  }
+
+  .mobile_only {
+    display: none;
   }
 
   .not_ipad {
@@ -602,6 +670,10 @@ nav {
     max-height: 100px;
   }
 
+  .destop_only {
+    display: none;
+  }
+
 }
 /* PLATTA SLUT*/
 
@@ -641,7 +713,15 @@ nav {
     display: none;
   }
 
-  .but_destop_to {
+  .mobile_only {
+    display: none;
+  }
+
+  .destop_only {
+    display: block;
+  }
+
+  .not_only_ipad_destop_too {
     display: block;
   }
 

@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="side column">
+  <aside class="side column">
     <div class="look_better_box">
       <h1 class="reletad_items_text">Reletad items</h1>
     </div>
@@ -22,20 +22,20 @@
       <li><a class="links" href="index.html">Item 3</a></li>
       <li><a class="links" href="index.html">Item 4</a></li>
     </ul>
-  </div>
+  </aside>
 
   <nav>
     <div class="hamburger_menu" onclick="hamburger_menu()">
       <i class="hamburger_menu fa fa-bars fa-lg" id="hamburger_icon"></i>
     </div>
     <h1 class="header">Spock</h1>
-    <img class="logo visable not_ipad" id="logo_id" src="./img/Logga.png" alt="Logo">
+    <i class="sprite sprite-Logga logo visable not_ipad" id="logo_id"></i>
     <div class="menu_background display_none" id="menu_background">
       <div class="fix_menu_text column">
         <h1 class="center_me">Menu</h1>
         <ul>
-          <li><a class="links" href="index.html">link 1</a></li>
-          <li><a class="links" href="index.html">link 2</a></li>
+          <li><a class="links" href="index.html">Home</a></li>
+          <li><a class="links" href="lager_mask.html">Lager Mask</a></li>
           <li><a class="links" href="index.html">link 3</a></li>
           <li><a class="links" href="index.html">link 4</a></li>
         </ul>
@@ -49,7 +49,9 @@
         <h1 class="item_header">Stolar</h1>
 
         <div class="center">
-          <img class="item_picture" src="./img/stol.png" alt="stol">
+          <i class="sprite sprite-stol-small mobile_only item_picture"></i>
+          <i class="sprite sprite-stol-medium destop_only item_picture"></i>
+          <i class="sprite sprite-stol-big ipad_only item_picture"></i>
         </div>
       </div>
 
@@ -69,7 +71,6 @@
         <!-- Graph HTML -->
       </div>
 
-
       <h1 class="people_who_sold">Who recently sold this item:</h1>
       <div class="ipad_row">
         <div class="column">
@@ -77,7 +78,7 @@
 
           </div>
           <div class="more">
-            <div class="more_button" onclick="createDiv()">
+            <div class="more_button" onclick="createDivs()">
               <h1 class="more_text">MORE</h1>
             </div>
           </div>
@@ -97,7 +98,7 @@
   </div>
   <footer>
     <div class="center">
-      <img class="logo_ipad ipad_only but_destop_to" id="logo_id" src="./img/Logga.png" alt="Logo">
+      <i class="sprite sprite-Logga logo_ipad ipad_only not_only_ipad_destop_too"></i>
     </div>
     <div class="divide_box">
       <div class="info">
@@ -106,9 +107,9 @@
         <a class="info_text" href="help.html">Help</a>
       </div>
       <div class="social">
-        <a href="https://twitter.com"><img class="social_images" src="./img/twitter.png" alt="Twitter"></a>
-        <a href="https://facebook.com"><img class="social_images" src="./img/facebook.png" alt="Facebook"></a>
-        <a href="https://instagram.com"><img class="social_images" src="./img/instagram.png" alt="Instagram"></a>
+        <a href="https://twitter.com"><i class="sprite sprite-Instagram social_images"></i></a>
+        <a href="https://facebook.com"><i class="sprite sprite-facebook social_images"></i></a>
+        <a href="https://instagram.com"><i class="sprite sprite-twitter social_images"></i></a>
       </div>
 
     </div>
@@ -123,7 +124,7 @@
   $(document).ready(function() {
     graph();
     showTooltip();
-    createDiv(); //get 5 users on startup
+    createDivs(); //get 5 users on startup
     removeUndefinedProblem(); //Removes a undefined box that appears when opening the site
   });
 </script>
