@@ -107,25 +107,25 @@
         <a class="info_text" href="help.html">Help</a>
       </div>
       <div class="social">
-        <a href="https://twitter.com"><i class="sprite sprite-Instagram social_images"></i></a>
+        <a href="https://instagram.com"><i class="sprite sprite-Instagram social_images"></i></a>
         <a href="https://facebook.com"><i class="sprite sprite-facebook social_images"></i></a>
-        <a href="https://instagram.com"><i class="sprite sprite-twitter social_images"></i></a>
+        <a href="https://twitter.com"><i class="sprite sprite-twitter social_images"></i></a>
       </div>
 
     </div>
   </footer>
+  <script src="./js/jquery-3.2.1.min.js"></script>
+  <script src="./js/flot/jquery.flot.min.js"></script>
+  <script src="./js/iconate.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/data.js"></script>
+  <script>
+    $(document).ready(function() {
+      graph();
+      showTooltip();
+      createDivs(); //get 5 users on startup
+      removeUndefinedProblem(); //Removes a undefined box that appears when opening the site
+    });
+  </script>
 </body>
-<script src="./js/jquery-3.2.1.min.js"></script>
-<script src="./js/flot/jquery.flot.min.js"></script>
-<script src="./js/iconate.min.js"></script>
-<script src="./js/main.js"></script>
-<script src="./js/data.js"></script>
-<script>
-  $(document).ready(function() {
-    graph();
-    showTooltip();
-    createDivs(); //get 5 users on startup
-    removeUndefinedProblem(); //Removes a undefined box that appears when opening the site
-  });
-</script>
 </html>

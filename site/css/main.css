@@ -512,6 +512,18 @@ nav {
 /* PLATTA */
 @media all and (min-device-width:500px) {
 
+  .lager_mask_bild {
+    width: 98%;
+    height: 50%;
+    margin-bottom: 30%;
+    align-self: center;
+  }
+
+  .work_of_art {
+    margin-top: 40%;
+    text-align: center;
+  }
+
   .side {
     display: none;
   }
@@ -651,16 +663,17 @@ nav {
     position: fixed;
     top: 0;
     right: 45vw;
+    color: white;
   }
 
   .logo_ipad {
     position: relative;
     right: inherit;
     border-radius: 50%;
-    bottom: 40px;
+    bottom: 20px;
     margin-bottom: -53px;
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
     -webkit-box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 17px rgba(0,0,0,0.75);
@@ -680,6 +693,19 @@ nav {
 /* DESKTOP */
 
 @media all and (min-device-width: 1025px) {
+
+  .lager_mask_bild {
+    width: 98%;
+    height: 70%;
+    margin-bottom: 10%;
+    align-self: center;
+  }
+
+  .work_of_art {
+    margin-top: 10%;
+    text-align: center;
+  }
+
 
   .side {
     position: fixed;
@@ -726,8 +752,8 @@ nav {
   }
 
   .logo_ipad {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     bottom: 20px;
   }
 
